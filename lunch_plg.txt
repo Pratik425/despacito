@@ -1,0 +1,50 @@
+Starters
+    green salad
+    melon
+    tomato salad
+    
+Main dishes
+    rock salmon with mayonnaise and capers
+    roast beef with girolle mushroom sauce
+    pasta, courgette and cheese bake
+Desert
+    cheese
+    yoghurt
+    pastry 
+
+
+
+starter(green_salad).
+starter(melon).
+starter(tomato_salad).
+
+
+main(salmon).
+main(pasta).
+
+desert(cheese).
+desert(yoghurt).
+desert(pastry).
+
+
+Rules
+
+menu(hungry,X,Y,Z) :- starter(X),main(Y),desert(Z).
+menu(not_so_hungry,X,Y,nothing) :- starter(X),main(Y).
+menu(not_so_hungry,nothing,Y,Z) :- main(Y),desert(Z).
+menu(on_diet,X,nothing,nothing) :- starter(X).
+
+
+
+
+Query
+
+starter(melon).
+true.
+
+starter(cheese).
+false.
+
+
+menu(Status,X,Y,Z).
+menu(Status,X,Y,nothing).
